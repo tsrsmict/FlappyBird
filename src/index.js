@@ -74,6 +74,8 @@ function volumeAudioProcess( event ) {
 
 
 window.onclick = function() {
+    console.log('Calling onclick function');
+
 	
     // monkeypatch Web Audio
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -116,12 +118,14 @@ function didntGetStream() {
 var mediaStreamSource = null;
 
 function gotStream(stream) {
+    console.log('Getting stream');
     // Create an AudioNode from the stream.
     mediaStreamSource = audioContext.createMediaStreamSource(stream);
 
     // Create a new volume meter and connect it.
     meter = createAudioMeter(audioContext, 0.98, 0);
     mediaStreamSource.connect(meter);
+    console.log('Initialised meter');
 }
 
 
@@ -189,6 +193,7 @@ const sketch = p5 => {
     }
 
     p5.setup = () => {
+        console.log('Setting up');
         var canvas = p5.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
         canvas.mousePressed(canvasClick);
         canvas.touchStarted(canvasTouch);
@@ -245,6 +250,8 @@ const sketch = p5 => {
         }
     }
 
+
+
     p5.keyPressed = (e) => {
         if (e.key === ' ') {
             if (gameOver === false)
@@ -258,6 +265,15 @@ const sketch = p5 => {
             }
         }
     }
+
+    window.setInterval(function(){
+        console.log('Calling interval function');
+        console.log(meter);
+        console.log(meter.volume);
+        if (meter.volume > 0.08) {
+            bird.jump();
+        }
+    }, 100);
 }
 
 new P5(sketch, 'Game');
