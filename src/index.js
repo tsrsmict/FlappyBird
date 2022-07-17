@@ -273,7 +273,7 @@ const sketch = p5 => {
         if (meter.volume > 0.08) {
             bird.jump();
         }
-    }, 100);
+    }, 75);
 }
 
 new P5(sketch, 'Game');
