@@ -7,7 +7,7 @@ export default class Bird {
         this.p5 = p5;
         this.gravity = 0.5;
         this.velocity = 0;
-        this.lift = -8;
+        this.lift = -4.5;
         this.birdPosition = { y: (CANVAS_HEIGHT / 2) - (BIRDSIZE.Width / 2), x: (CANVAS_WIDTH / 2) - (BIRDSIZE.Height / 2) };
         this.image = spriteImage;
         this.frame = 0;
@@ -31,7 +31,7 @@ export default class Bird {
 
     jump() {
         this.velocity = this.lift;
-        this.birdRotate = { angle: -25, xOffset: -10, yOffset: 15 };
+        this.birdRotate = { angle: -25, xOffset: -10, yOffset: 10 };
     }
 
     isDead() {
