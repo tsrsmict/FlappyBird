@@ -5,7 +5,7 @@ export default class Bird {
 
     constructor(p5, spriteImage) {
         this.p5 = p5;
-        this.gravity = 0.5;
+        this.gravity = 0.48;
         this.velocity = 0;
         this.lift = -4.5;
         this.birdPosition = { y: (CANVAS_HEIGHT / 2) - (BIRDSIZE.Width / 2), x: (CANVAS_WIDTH / 2) - (BIRDSIZE.Height / 2) };
