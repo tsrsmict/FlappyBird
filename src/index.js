@@ -72,11 +72,18 @@ function volumeAudioProcess( event ) {
     this.volume = Math.max(rms, this.volume*this.averaging);
 }
 
+document.addEventListener('keyup', event => {
+    if (event.code === 'Space') {
+      console.log('Space pressed')
+      document.querySelector('#clappybird').style.display = 'block';
+    }
+  })
 
 window.onclick = function() {
     console.log('Calling onclick function');
+    document.querySelector('#part1').style.display = 'none';
+    document.querySelector('#part2').style.display = 'block';
 
-	
     // monkeypatch Web Audio
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
 	
@@ -253,12 +260,6 @@ const sketch = p5 => {
 
 
     p5.keyPressed = (e) => {
-        if (e.key === ' ') {
-            if (gameOver === false)
-                bird.jump();
-            if (gameStart === false)
-                gameStart = true;
-        }
         if (e.key === 'r') {
             if (gameOver) {
                 resetGame();
@@ -273,7 +274,7 @@ const sketch = p5 => {
         if (meter.volume > 0.05) {
             bird.jump();
         }
-    }, 50);
+    }, 25);
 }
 
 new P5(sketch, 'Game');

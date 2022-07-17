@@ -1,6 +1,11 @@
+@font-face {
+  font-family: FlappyBirdy;
+  src: url(assets/FlappyBirdy.ttf);
+}
+
 body {
-  font: 100% Helvetica, sans-serif;
-  background-color: #272b30;
+  font: 100% FlappyBirdy, sans-serif;
+  background-color: #000000;
 }
 
 .p5Canvas {
