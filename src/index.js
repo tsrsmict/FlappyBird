@@ -271,7 +271,7 @@ const sketch = p5 => {
         console.log('Calling interval function');
         console.log(meter);
         console.log(meter.volume);
-        if (meter.volume > 0.05) {
+        if (meter.volume > 0.08) {
             bird.jump();
         }
     }, 25);
